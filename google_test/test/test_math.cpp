@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "math.hpp"
+#include "../src/math.hpp"
 
 /*
 * Every test file requires this function.
@@ -13,15 +13,7 @@ void setUp(void)
 
 class MathTest : public ::testing::Test {
 protected:
-void SetUp(void) override
-{
-   Math math; // Instance of the Math class to be used in tests
-}
-
-void TearDown(void) override
-{
-   
-}
+Math math; // Instance of the Math class to be used in tests
     
 };
 
@@ -65,14 +57,19 @@ TEST_F(MathTest, Divide_normal)
    // Act
    result = math.Divide(x, y);
    // Assert
-   TEST_ASSERT_TRUE(result == z);
+   EXPECT_EQ(result, z);
 }
 
 TEST_F(MathTest, Divide_exceptin)
 {
    // Arrange
-   uint32_t result = 0,x = 0, y = 5;
+   uint32_t x = 0, y = 5;
    // Act and Assert
    EXPECT_THROW(math.Divide(x, y), std::invalid_argument);
 }
 
+int main()
+{
+	::testing::InitGoogleTest();
+	return RUN_ALL_TESTS();
+}
