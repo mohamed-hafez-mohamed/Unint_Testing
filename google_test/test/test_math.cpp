@@ -63,7 +63,7 @@ TEST_F(MathTest, Divide_normal)
 TEST_F(MathTest, Divide_exceptin)
 {
    // Arrange
-   uint32_t x = 0, y = 5;
+   uint32_t x = 10, y = 0;
    // Act and Assert
    EXPECT_THROW(math.Divide(x, y), std::invalid_argument);
 }
