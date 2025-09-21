@@ -1,16 +1,6 @@
 #include <gtest/gtest.h>
 #include "../src/math.hpp"
 
-/*
-* Every test file requires this function.
-* setUp() is called by the generated runner before each test case.
-*/
-void setUp(void)
-{
-   
-}
-
-
 class MathTest : public ::testing::Test {
 protected:
 Math math; // Instance of the Math class to be used in tests
